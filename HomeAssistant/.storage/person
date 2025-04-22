@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "minor_version": 1,
+  "key": "person",
+  "data": {
+    "items": [
+      {
+        "id": "cis489aihomeassistant",
+        "name": "CIS489AIHomeAssistant",
+        "user_id": "6ed79084bfbb4911be4631dd9b77ac41",
+        "device_trackers": []
+      }
+    ]
+  }
+}

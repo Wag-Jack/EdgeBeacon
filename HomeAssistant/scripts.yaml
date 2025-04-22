@@ -1,0 +1,17 @@
+set_selected_date:
+  alias: Set Selected Date with Reset
+  sequence:
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.selected_schedule_date
+      data:
+        value: '{{ date }}'
+    - service: shell_command.fetch_schedule
+    - delay: "00:00:01"
+    - service: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.input_boolean_force_navigate
+    - delay: "00:00:01"
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.input_boolean_force_navigate

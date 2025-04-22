@@ -1,0 +1,9 @@
+alias: "Navigate After Selecting Date"
+trigger:
+  - platform: state
+    entity_id: input_boolean.input_boolean_force_navigate
+    to: "on"
+action:
+  - service: browser_mod.navigate
+    data:
+      path: "/smart-home-scheduler/day-view"

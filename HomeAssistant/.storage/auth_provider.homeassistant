@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "auth_provider.homeassistant",
+  "data": {
+    "users": [
+      {
+        "username": "cis489aihomeassistant",
+        "password": "JDJiJDEyJGZlSFVrQTFtMEtKd3VZSkVJeS5Lbk96Y1N0ZGJQS3pBanFXWm10bzlwY3VPU1R0SWJtb25H"
+      }
+    ]
+  }
+}

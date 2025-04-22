@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+    mqtt_broker:
+        image: eclipse-mosquitto:1.6
+        ports:
+            - "1883:1883"
+            - "9001:9001"
+        volumes:
+            - ./MQTTBroker/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+            - ./MQTTBroker/data:/mosquitto/data
+            - ./MQTTBroker/log:/mosquitto/log
+        network_mode: host
+
+    home_assistant:
+        image: "ghcr.io/home-assistant/home-assistant:stable"
+        volumes:
+          - ./HomeAssistant:/config
+          - /etc/localtime:/etc/localtime:ro
+          - /run/dbus:/run/dbus:ro
+        restart: unless-stopped
+        privileged: true
+        network_mode: host
+
+    scheduler_ml:
+        build: ./SchedulerML
+        depends_on:
+            - mqtt_broker
+        network_mode: host
+
+    reasoning_llm:
+        build: ./ReasoningAgent
+        depends_on:
+            - mqtt_broker
+        network_mode: host
